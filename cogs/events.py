@@ -21,10 +21,10 @@ class events(commands.Cog):
               video = f["data"] 
               video_bytes = video["play"] 
               requestss = requests.get(video_bytes).content
-              await ctx.reply(file = discord.File(io.BytesIO(requestss), f"{self.bot.user.name}tok.mp4"), mention_author=False)
+              await message.reply(file = discord.File(io.BytesIO(requestss), f"{self.bot.user.name}tok.mp4"), mention_author=False)
       except:
-        return await ctx.reply("there was a error while reposing this video")
+        return await message.reply("there was a error while reposing this video")
 
 
 async def setup(bot):
-    await bot.add_cog(message_events(bot))
+    await bot.add_cog(events(bot))
